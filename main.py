@@ -6,12 +6,23 @@ import seaborn as sns
 from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+# Configuración de CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Permitir todas las URLs de origen
+    allow_origins=["http://localhost:8080", "https://dashboardpython-production.up.railway.app"],  # Lista de orígenes permitidos
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE"],  # Métodos HTTP permitidos
-    allow_headers=["Content-Type"],  # Encabezados permitidos
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["Content-Type"],
+)
+
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:8080", "https://miapp.railway.app"],  # Lista de orígenes permitidos
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["Content-Type"],
 )
 
 # Cargar los datos limpios
