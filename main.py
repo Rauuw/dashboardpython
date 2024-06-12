@@ -3,8 +3,16 @@ from fastapi.responses import FileResponse
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permitir todas las URLs de origen
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],  # Métodos HTTP permitidos
+    allow_headers=["Content-Type"],  # Encabezados permitidos
+)
 
 # Cargar los datos limpios
 books = pd.read_csv('clean_books.csv')
