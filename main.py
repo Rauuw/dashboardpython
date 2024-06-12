@@ -60,8 +60,8 @@ def plot_books_by_ratings():
 
     # Guardar el gráfico como un archivo
     plot_file = 'books_by_ratings.png'
-    plt.savefig(plot_file)
-    plt.close()
+    #plt.savefig(plot_file)
+    #plt.close()
 
     # Enviar el archivo de imagen como respuesta
     return FileResponse(plot_file, media_type='image/png', filename=plot_file)
@@ -93,8 +93,8 @@ def plot_books_by_year(start_year: int = Query(None), end_year: int = Query(None
 
 
     plot_file = 'books_by_year.png'
-    plt.savefig(plot_file)
-    plt.close()
+    #plt.savefig(plot_file)
+    #plt.close()
 
     return FileResponse(plot_file, media_type='image/png', filename=plot_file)
 
