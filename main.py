@@ -111,3 +111,6 @@ def plot_books_by_year(start_year: int = Query(None), end_year: int = Query(None
 
     return FileResponse(plot_file, media_type='image/png', filename=plot_file)
 
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
